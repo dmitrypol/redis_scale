@@ -102,3 +102,10 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+#
+**/.vscode/
+**/*.aof
+**/dump.rdb
+**/nodes.conf
+**/envoy.yaml
