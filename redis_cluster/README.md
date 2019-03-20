@@ -4,4 +4,4 @@ redis-cli --cluster create 127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 127.0.0.
 
 python worker.py
 
-https://willwarren.com/2017/10/redis-cluster-cheatsheet/#adding-new-masters-to-an-existing-cluster
+redis-cli -p 7000 cluster info

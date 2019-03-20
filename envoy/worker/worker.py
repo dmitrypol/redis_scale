@@ -12,5 +12,5 @@ if __name__ == '__main__':
         unique_user_id = str(uuid.uuid4())
         coordinates = {'lon':uniform(-180,180), 'lat':uniform(-90,90)}
         pipe.hmset(unique_user_id, coordinates)
-        pipe.expire(unique_user_id, 300)
+        pipe.expire(unique_user_id, 60)
         pipe.execute()
