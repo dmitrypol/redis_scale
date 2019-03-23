@@ -24,17 +24,27 @@
         <div class="row">
             <div class="col">
                 <div class="alert alert-primary" role="alert">
-                    <h3>{{ count }} nodes</h3>
+                    <h4>{{ num_nodes }} nodes</h4>
                 </div>
               </div>
             <div class="col">
               <div class="alert alert-success" role="alert">
-                <h3>{{ total }} keys</h3>
+                <h4>{{ num_keys }} keys</h4>
+              </div>
+            </div>
+            <div class="col">
+              <div class="alert alert-info" role="alert">
+                <h4>{{ run_time }} seconds</h4>
+              </div>
+            </div>
+            <div class="col">
+              <div class="alert alert-warning" role="alert">
+                <h4>{{ ops_per_sec }} ops per sec</h4>
               </div>
             </div>
             <div class="col">
               <div class="alert alert-danger" role="alert">
-                <h3>{{ used_memory }} bytes</h3>
+                <h4>{{ used_memory }} bytes</h4>
               </div>
             </div>
         </div>

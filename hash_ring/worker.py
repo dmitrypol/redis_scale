@@ -22,4 +22,4 @@ if __name__ == '__main__':
         unique_user_id = str(uuid.uuid4())
         coordinates = {'lon':uniform(-180,180), 'lat':uniform(-90,90)}
         hr[unique_user_id].hmset(unique_user_id, coordinates)
-        hr[unique_user_id].expire(unique_user_id, 300)
+        hr[unique_user_id].expire(unique_user_id, 60)

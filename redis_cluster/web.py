@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import time
 from flask import Flask
 from flask import render_template
 from rediscluster import StrictRedisCluster
@@ -13,18 +14,31 @@ r = StrictRedisCluster(startup_nodes=startup_nodes, decode_responses=True)
 @app.route("/")
 def web(dbsize=None, count=None, total=None, used_memory=None):
 
+    start_time = 0
+    if r.get('start_time'): start_time = r.get('start_time')
+    run_time = int(time.time() - float(start_time))
+
     info_memory = r.info(section='memory')
     tmp_memory = 0
     for key, value in info_memory.items():
         tmp_memory += int(value['used_memory'])
-    format_memory = ("{:,}".format(tmp_memory))
+    used_memory = ("{:,}".format(tmp_memory))
 
     dbsize = r.dbsize()
     tmp_total=sum(dbsize.values())
-    format_total = ("{:,}".format(tmp_total))
+    num_keys = ("{:,}".format(tmp_total))
 
-    return render_template( 'web.html', dbsize=dbsize, count=len(dbsize), total=format_total, used_memory=format_memory )
-    # return str(dbsize)
+    ops_per_sec = int(tmp_total / run_time)
+
+    return render_template('web.html', 
+        dbsize=dbsize, 
+        num_nodes=len(dbsize), 
+        num_keys=num_keys, 
+        used_memory=used_memory,
+        run_time = run_time,
+        ops_per_sec = ops_per_sec
+        )
+    # return str(run_time)
 
 
 @app.route("/info")
