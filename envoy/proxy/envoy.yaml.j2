@@ -22,6 +22,7 @@ static_resources:
           cluster: redis_cluster
           settings:
             op_timeout: 5s
+            enable_hashtagging: true
   clusters:
   - name: redis_cluster
     connect_timeout: 1s

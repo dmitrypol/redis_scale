@@ -11,3 +11,5 @@ http://localhost:5000/
 redis-cli -p 7000 cluster info
 
 rm -f 700*/nodes.conf 700*/dump.rdb 700*/appendonly.aof
+
+pkill -f redis-server
