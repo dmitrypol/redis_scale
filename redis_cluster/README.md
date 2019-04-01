@@ -1,4 +1,4 @@
-rm -f 700*/nodes.conf 700*/dump.rdb 700*/appendonly.aof
+rm -f 700*/nodes.conf 700*/dump.rdb 700*/appendonly.aof 700*/redis.log
 
 pkill -f redis-server
 
@@ -18,7 +18,8 @@ redis-cli --cluster check 127.0.0.1:7000
 
 redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000
 
-redis-cli --cluster add-node 127.0.0.1:7007 127.0.0.1:7000 --cluster-slave --cluster-master-id node-id
+redis-cli --cluster add-node 127.0.0.1:7007 127.0.0.1:7000 --cluster-slave
+--cluster-master-id node-id
 
 redis-cli --cluster reshard 127.0.0.1:7000
 
