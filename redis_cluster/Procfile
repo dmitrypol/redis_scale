@@ -1,8 +1,0 @@
-r0: cd 7000 && ../redis-server ./redis.conf
-r1: cd 7001 && ../redis-server ./redis.conf
-r2: cd 7002 && ../redis-server ./redis.conf
-r3: cd 7003 && ../redis-server ./redis.conf
-r4: cd 7004 && ../redis-server ./redis.conf
-r5: cd 7005 && ../redis-server ./redis.conf
-r6: cd 7006 && ../redis-server ./redis.conf
-r7: cd 7007 && ../redis-server ./redis.conf

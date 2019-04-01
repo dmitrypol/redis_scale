@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-honcho = "*"
 hiredis = "*"
 redis-py-cluster = "*"
 flask = "*"

@@ -19,7 +19,15 @@ if __name__ == '__main__':
     }
     hr = HashRing(nodes)
     while True:
-        unique_user_id = str(uuid.uuid4())
-        coordinates = {'lon':uniform(-180,180), 'lat':uniform(-90,90)}
-        hr[unique_user_id].hmset(unique_user_id, coordinates)
-        hr[unique_user_id].expire(unique_user_id, 60)
+        value = {'lon':uniform(-180,180), 'lat':uniform(-90,90)}
+        #   
+        hash_tag = ''
+        unique_id = str(uuid.uuid4())
+        key = hash_tag + unique_id
+        if hash_tag:
+            hr_hint = hash_tag
+        else:
+            hr_hint = key
+        #   
+        hr[hr_hint].hmset(key, value)
+        hr[hr_hint].expire(key, 60)
