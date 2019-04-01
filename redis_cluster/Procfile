@@ -4,5 +4,5 @@ r2: cd 7002 && ../redis-server ./redis.conf
 r3: cd 7003 && ../redis-server ./redis.conf
 r4: cd 7004 && ../redis-server ./redis.conf
 r5: cd 7005 && ../redis-server ./redis.conf
-# web: python web.py
-# worker: python worker.py
+r6: cd 7006 && ../redis-server ./redis.conf
+r7: cd 7007 && ../redis-server ./redis.conf
