@@ -3,11 +3,14 @@ import os
 import uuid
 import time
 from random import uniform
+import redis
 from rediscluster import StrictRedisCluster
 
 
 startup_nodes = [{'host': 'localhost', 'port': '7000'}]
 r = StrictRedisCluster(startup_nodes=startup_nodes, decode_responses=True)
+#   used with https://github.com/RedisLabs/redis-cluster-proxy
+#r = redis.StrictRedis(host='localhost', port=7777, charset='utf-8', decode_responses=True)
 pipe = r.pipeline(transaction=False)
 
 
